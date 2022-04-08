@@ -7,6 +7,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import io.reactivex.Flowable;
 import ru.pavlenty.roomexample.room.Task;
 
 
@@ -17,7 +19,7 @@ import ru.pavlenty.roomexample.room.Task;
 public interface TaskDao {
 
     @Query("SELECT * FROM task")
-    List<Task> getAll();
+    Flowable<List<Task>> getAll();
 
     @Insert
     void insert(Task t);
